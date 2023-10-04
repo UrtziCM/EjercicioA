@@ -1,5 +1,6 @@
 package ejercicioa;
 
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -165,4 +166,15 @@ public class EjercicioAController {
 		cine.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ir al cine"));
 		tele.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ver la tele"));
 	}
+	private Node whatIsEmpty() {
+		if (profesionTxtf.getText() == null) {
+			return profesionTxtf;
+		} else if(nHermanosTxtf.getText() == null) {
+			return nHermanosTxtf;
+		} else if(comboEdades.getValue() == null) {
+			return comboEdades;
+		}
+		return null;
+	}
+	
 }
