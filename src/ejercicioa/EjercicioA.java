@@ -17,7 +17,7 @@ public class EjercicioA extends Application {
     	
     	
     	
-        stage.setTitle("FXML Welcome");
+        stage.setTitle("Encuesta");
         stage.setHeight(600);
         stage.setWidth(600);
         stage.setScene(scene);
