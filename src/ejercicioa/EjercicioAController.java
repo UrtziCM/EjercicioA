@@ -129,8 +129,9 @@ public class EjercicioAController {
 			"Nº Hermanos: " + nHermanosTxtf.getText(),
 			"Edad: " + comboEdades.getValue(),
 			"Sexo: " + selectedButton(radiobuttons).getText(),
+			/* Si practica deporte se añade enseña cuales si no, no. */
 			(practicaDeporte.isSelected())?"Deportes que practicas:":"",
-			stringDeportesPractica(),
+			(practicaDeporte.isSelected())?stringDeportesPractica():"",
 			"Grado de aficción a las compras: " + (int)compras.getValue(),
 			"Grado de aficción a ver la televisión: " + (int)tele.getValue(),
 			"Grado de aficción a ir al cine: " + (int)cine.getValue(),
