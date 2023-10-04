@@ -11,6 +11,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -68,6 +69,7 @@ public class EjercicioAController {
 		deportesGPane.add(deportesLst,1,1);
 
 		this.setupButtons();
+		setupToolTips();
 	}
 	
 	private void setupButtons() {
@@ -117,5 +119,10 @@ public class EjercicioAController {
 		}
 		deportes = deportes.substring(0,deportes.length()-1);
 		return deportes;
+	}
+	private void setupToolTips() {
+		compras.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ir de compras"));
+		cine.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ir al cine"));
+		tele.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ver la tele"));
 	}
 }
