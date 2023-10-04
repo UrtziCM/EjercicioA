@@ -1,6 +1,5 @@
 package ejercicioa;
 
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -9,8 +8,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class EjercicioAController {
@@ -50,17 +51,21 @@ public class EjercicioAController {
 		cine = (Slider) root.lookup("#cineSlider");
 		practicaDeporte = (CheckBox) root.lookup("#deporteCheck");
 		
-		practicaDeporte.setOnAction(e -> deportesLst.setDisable(practicaDeporte.isSelected()));
+		practicaDeporte.setOnAction(e -> deportesLst.setDisable(!practicaDeporte.isSelected()));
 		
-		deportesLst = (ListView<String>) root.lookup("#deporteList");
-//		deportesLst.getItems().setAll(
-//			"Tenis",
-//			"Fútbol",
-//			"Baloncesto",
-//			"Natación",
-//			"Ciclismo",
-//			"Otro"
-//		);
+		deportesLst = new ListView<String>();
+		deportesLst.getItems().setAll(
+			"Tenis",
+			"Fútbol",
+			"Baloncesto",
+			"Natación",
+			"Ciclismo",
+			"Otro"
+		);
+		deportesLst.setDisable(true);
+		deportesLst.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		GridPane deportesGPane = (GridPane) practicaDeporte.getParent();
+		deportesGPane.add(deportesLst,1,1);
 
 		this.setupButtons();
 	}
@@ -106,6 +111,11 @@ public class EjercicioAController {
 	}
 
 	private String stringDeportesPractica() {
-		return null;
+		String deportes = "";
+		for (String deporte : deportesLst.getSelectionModel().getSelectedItems()) {
+			deportes += "\t" + deporte + "\n";
+		}
+		deportes = deportes.substring(0,deportes.length()-1);
+		return deportes;
 	}
 }
