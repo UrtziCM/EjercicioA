@@ -14,7 +14,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
-
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -176,5 +176,13 @@ public class EjercicioAController {
 		}
 		return null;
 	}
-	
+	private void showErrorWindow() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("ERROR: Missing argument");
+		alert.setHeaderText(null);
+		alert.setContentText("Falta por rellenar parte del formulario");
+		
+		alert.initModality(Modality.APPLICATION_MODAL);
+		alert.showAndWait();
+	}
 }
