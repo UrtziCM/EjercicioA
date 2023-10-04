@@ -50,13 +50,13 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profesion: " GridPane.halignment="RIGHT" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Hermanos: " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo: " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <TextField id="profesionTextfield" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
-                  <TextField id="nHermanosTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="profesionTextfield" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
+                  <TextField fx:id="nHermanosTextfield" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edad: " GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <ComboBox id="edadDropdown" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="edadDropdown" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
                      <children>
-                        <RadioButton id="radioMale" mnemonicParsing="false" text="Hombre">
+                        <RadioButton fx:id="radioMale" mnemonicParsing="false" text="Hombre">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -64,7 +64,7 @@
                               <ToggleGroup fx:id="sexoGroup" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton id="radioFemale" mnemonicParsing="false" text="Mujer" toggleGroup="$sexoGroup">
+                        <RadioButton fx:id="radioFemale" mnemonicParsing="false" text="Mujer" toggleGroup="$sexoGroup">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -72,7 +72,7 @@
                               <Insets left="5.0" right="5.0" />
                            </padding>
                         </RadioButton>
-                        <RadioButton id="radioOther" mnemonicParsing="false" text="Otro" toggleGroup="$sexoGroup">
+                        <RadioButton fx:id="radioOther" mnemonicParsing="false" text="Otro" toggleGroup="$sexoGroup">
                            <padding>
                               <Insets left="5.0" right="5.0" />
                            </padding>
@@ -94,7 +94,7 @@
                 <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox id="deporteCheck" mnemonicParsing="false" text="¿Practica algun deporte?">
+                  <CheckBox fx:id="deporteCheck" mnemonicParsing="false" text="¿Practica algun deporte?">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
@@ -102,7 +102,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Cual?" GridPane.columnIndex="1" />
                   <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <content>
-                        <ListView id="deportesList" prefHeight="129.0" prefWidth="275.0" />
+                        <ListView fx:id="deporteList" disable="true" prefHeight="129.0" prefWidth="275.0" />
                      </content>
                   </ScrollPane>
                </children>
@@ -130,9 +130,9 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Compras: " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ver television: " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ir al cine: " GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <Slider id="compraSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Slider id="televisionSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Slider id="cineSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Slider fx:id="compraSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Slider fx:id="televisionSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Slider fx:id="cineSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="50.0" />
@@ -147,12 +147,12 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="aceptarButton" mnemonicParsing="false" prefWidth="200.0" text="Aceptar">
+            <Button fx:id="aceptarButton" mnemonicParsing="false" prefWidth="200.0" text="Aceptar">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button id="cancelarButton" mnemonicParsing="false" prefWidth="200.0" text="Cancelar">
+            <Button fx:id="cancelarButton" mnemonicParsing="false" prefWidth="200.0" text="Cancelar">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" top="5.0" />
                </HBox.margin>
