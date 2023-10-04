@@ -119,6 +119,11 @@ public class EjercicioAController {
 	 * 
 	 */
 	private void crearModalConInfo() {
+		if (whatIsEmpty() != null) {
+			showErrorWindow();
+			return;
+		}
+		
 		String[] datos = {
 			"Profesión: " + profesionTxtf.getText(),
 			"Nº Hermanos: " + nHermanosTxtf.getText(),
@@ -167,6 +172,10 @@ public class EjercicioAController {
 		cine.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ir al cine"));
 		tele.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ver la tele"));
 	}
+	/**
+	 * Devuelve el nodo vacío en la ventana.
+	 * @return Node nodo vacío en la ventana.
+	 */
 	private Node whatIsEmpty() {
 		if (profesionTxtf.getText() == null) {
 			return profesionTxtf;
@@ -177,6 +186,9 @@ public class EjercicioAController {
 		}
 		return null;
 	}
+	/**
+	 * Enseña una ventana de error indicando que falta algo por rellenar.
+	 */
 	private void showErrorWindow() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("ERROR: Missing argument");
