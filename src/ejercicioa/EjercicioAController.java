@@ -141,6 +141,7 @@ public class EjercicioAController {
 		alert.setTitle("Information Dialog");
 		alert.setHeaderText(null);
 		alert.setContentText(datosString);
+		alert.initModality(Modality.APPLICATION_MODAL);
 
 		alert.showAndWait();
 	}
