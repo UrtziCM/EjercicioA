@@ -1,5 +1,6 @@
 package ejercicioa;
 
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -13,7 +14,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
-
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -118,13 +119,19 @@ public class EjercicioAController {
 	 * 
 	 */
 	private void crearModalConInfo() {
+		if (whatIsEmpty() != null) {
+			showErrorWindow();
+			return;
+		}
+		
 		String[] datos = {
 			"Profesión: " + profesionTxtf.getText(),
 			"Nº Hermanos: " + nHermanosTxtf.getText(),
 			"Edad: " + comboEdades.getValue(),
 			"Sexo: " + selectedButton(radiobuttons).getText(),
+			/* Si practica deporte se añade enseña cuales si no, no. */
 			(practicaDeporte.isSelected())?"Deportes que practicas:":"",
-			stringDeportesPractica(),
+			(practicaDeporte.isSelected())?stringDeportesPractica():"",
 			"Grado de aficción a las compras: " + (int)compras.getValue(),
 			"Grado de aficción a ver la televisión: " + (int)tele.getValue(),
 			"Grado de aficción a ir al cine: " + (int)cine.getValue(),
@@ -140,6 +147,7 @@ public class EjercicioAController {
 		alert.setTitle("Information Dialog");
 		alert.setHeaderText(null);
 		alert.setContentText(datosString);
+		alert.initModality(Modality.APPLICATION_MODAL);
 
 		alert.showAndWait();
 	}
@@ -164,5 +172,31 @@ public class EjercicioAController {
 		compras.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ir de compras"));
 		cine.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ir al cine"));
 		tele.setTooltip(new Tooltip("Indica del 1 al 10 cuanto te gusta ver la tele"));
+	}
+	/**
+	 * Devuelve el nodo vacío en la ventana.
+	 * @return Node nodo vacío en la ventana.
+	 */
+	private Node whatIsEmpty() {
+		if (profesionTxtf.getText() == null) {
+			return profesionTxtf;
+		} else if(nHermanosTxtf.getText() == null) {
+			return nHermanosTxtf;
+		} else if(comboEdades.getValue() == null) {
+			return comboEdades;
+		}
+		return null;
+	}
+	/**
+	 * Enseña una ventana de error indicando que falta algo por rellenar.
+	 */
+	private void showErrorWindow() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("ERROR: Missing argument");
+		alert.setHeaderText(null);
+		alert.setContentText("Falta por rellenar parte del formulario");
+		
+		alert.initModality(Modality.APPLICATION_MODAL);
+		alert.showAndWait();
 	}
 }
