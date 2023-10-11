@@ -1,5 +1,6 @@
 package ejercicioa;
 
+import controllers.EjercicioAController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
